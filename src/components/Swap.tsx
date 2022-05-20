@@ -21,6 +21,7 @@ export function Swap(){
       setConversionValue(e.response.data.error)
     }
   }
+
   return(
     <div 
     className="flex flex-col gap-3 items-center absolute top-2/4 left-2/4 -translate-y-[50%] -translate-x-[50%]"
@@ -50,6 +51,8 @@ export function Swap(){
       </div>
       <div>
       <input
+        type="number"
+        step="0.1"
         placeholder="amount"
         onChange={e => setAmount(Number(e.target.value))}
         className="bg-[#205375] text-white w-40 h-12 text-center text-2xl rounded-md

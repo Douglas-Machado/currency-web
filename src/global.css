@@ -6,3 +6,13 @@ body{
   @apply bg-[#112B3C];
   @apply overflow-hidden
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
