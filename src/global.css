@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 body{
-  @apply bg-[#112B3C]
+  @apply bg-[#112B3C];
+  @apply overflow-hidden
 }
