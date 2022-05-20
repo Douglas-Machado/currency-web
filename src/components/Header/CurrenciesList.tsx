@@ -7,12 +7,14 @@ export function CurrenciesList(){
   const [currenciesList, setCurrenciesList] = useState({})
 
   async function getCurrenciesList() {
-    const response = await api.get('currencies')
-
-    setCurrenciesList(response.data.results)
     if(isClicked === true) {
       setIsClicked(false)
-    } else { setIsClicked(true)}
+    } else { 
+      const response = await api.get('currencies')
+
+    setCurrenciesList(response.data.results)
+    setIsClicked(true)
+    }
   }
 
   return(
