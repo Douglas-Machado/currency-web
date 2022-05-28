@@ -38,12 +38,13 @@ export function CurrenciesList(){
 
       {!isClicked ? null : 
         <div 
-          className="absolute min-w-[160px] overflow-auto z-10 right-0 top-16 max-h-[818px]">
+          className="absolute overflow-auto z-10 
+            sm:right-0 sm:inset-auto inset-x-0 top-[100px] sm:top-16 max-h-[800px] sm:max-h-[800px]">
           {currenciesList.map(index => {
             return(
-              <div key={index.id} className="bg-[#205375] hover:bg-opacity-70 flex items-center max-w-[250px]">
-                <span className="text-white py-2 px-2 inline-block max-w-[40px]">{index.id}</span>
-                <span className="text-white py-2 px-4 inline-block text-sm text-left">{index.currencyName}</span>
+              <div key={index.id} className="bg-[#205375] sm:hover:bg-[#112B3C] flex items-center">
+                <a className="text-white py-1 sm:py-2 px-2 max-w-[40px]">{index.id}</a>
+                <a className="text-white py-1 sm:py-2 px-4 text-sm text-left">{index.currencyName}</a>
               </div>
             )
           })}

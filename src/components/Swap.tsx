@@ -28,14 +28,17 @@ export function Swap(){
   >
     <form 
       onSubmit={(e) => submitValue(e)}
-      className="flex justify-between gap-3">
+      className="flex justify-between flex-col sm:flex-row gap-3">
       <div>
         <input
           placeholder="ex: usd"
           onChange={e => setFrom(e.target.value)}
-          className="bg-[#205375] text-white w-40 h-12 text-center text-2xl rounded-md
-          placeholder-zinc-200 placeholder-opacity-60 focus:outline-none focus:outline-[#F66B0E]
-            focus:outline-1 drop-shadow-box"
+          className="
+            bg-[#205375] text-white h-12 text-center text-2xl flex-1
+            sm:w-32
+            placeholder-zinc-200 placeholder-opacity-60 
+            focus:outline-none focus:outline-[#F66B0E] focus:outline-1
+            drop-shadow-box rounded-md"
           maxLength={3}
         />
       </div>
@@ -43,9 +46,12 @@ export function Swap(){
         <input
           placeholder="ex: eur"
           onChange={e => setTo(e.target.value)}
-          className="bg-[#205375] text-white w-40 h-12 text-center text-2xl rounded-md
-          placeholder-zinc-200 placeholder-opacity-60 focus:outline-none focus:outline-[#F66B0E]
-            focus:outline-1 drop-shadow-box"
+          className="
+            bg-[#205375] text-white h-12 text-center text-2xl flex-1
+            sm:w-32
+            placeholder-zinc-200 placeholder-opacity-60
+            focus:outline-none focus:outline-[#F66B0E] focus:outline-1 
+            drop-shadow-box rounded-md"
           maxLength={3}
         />
       </div>
@@ -55,19 +61,26 @@ export function Swap(){
         step="0.1"
         placeholder="amount"
         onChange={e => setAmount(Number(e.target.value))}
-        className="bg-[#205375] text-white w-40 h-12 text-center text-2xl rounded-md
-            placeholder-zinc-200 placeholder-opacity-60 focus:outline-none focus:outline-[#F66B0E] 
-            focus:outline-1 drop-shadow-box
-          "
+        className="
+          bg-[#205375] text-white h-12 text-center text-2xl flex-1
+          sm:w-32
+          placeholder-zinc-200 placeholder-opacity-60 
+          focus:outline-none focus:outline-[#F66B0E] focus:outline-1 
+          drop-shadow-box rounded-md
+        "
       />
     </div>
-    <button 
-      type="submit" 
-      className="bg-[#112B3C] border-2 border-[#F66B0E] text-white rounded-md w-40 h-12 text-2xl drop-shadow-box">Submit</button>
+      <button 
+        type="submit" 
+        className="bg-[#112B3C] sm:w-32
+          border-2 border-[#F66B0E] text-white rounded-md h-12 text-2xl drop-shadow-box">
+        Submit
+      </button>
     </form>
     <span
-      className="w-3/5 h-12 text-2xl text-center inline-block
-        bg-[#205375] text-white rounded-md pt-1 drop-shadow-box
+      className="text-2xl h-12 flex items-center justify-center
+        sm:w-72 w-full break-words 
+        bg-[#205375] text-white rounded-md drop-shadow-box
       "
     >
         {conversionValue ? conversionValue : "result will be shown here"}</span>
