@@ -1,9 +1,9 @@
 import { FormEvent, useState } from "react"
 import { api } from "../services/api"
+import { useCurrency } from "../context/Currency"
 
 export function Swap(){
-  const [from, setFrom] = useState('')
-  const [to, setTo] = useState('')
+  const { from, setFrom, to, setTo } = useCurrency()
   const [amount, setAmount] = useState(0)
   const [conversionValue, setConversionValue] = useState('')
 
@@ -30,6 +30,7 @@ export function Swap(){
       onSubmit={(e) => submitValue(e)}
       className="flex justify-between flex-col sm:flex-row gap-3">
       <div>
+
         <input
           placeholder="ex: usd"
           onChange={e => setFrom(e.target.value)}
@@ -39,6 +40,7 @@ export function Swap(){
             placeholder-zinc-200 placeholder-opacity-60 
             focus:outline-none focus:outline-[#F66B0E] focus:outline-1
             drop-shadow-box rounded-md"
+          value={from}
           maxLength={3}
         />
       </div>
@@ -52,6 +54,7 @@ export function Swap(){
             placeholder-zinc-200 placeholder-opacity-60
             focus:outline-none focus:outline-[#F66B0E] focus:outline-1 
             drop-shadow-box rounded-md"
+          value={to}
           maxLength={3}
         />
       </div>
@@ -84,6 +87,7 @@ export function Swap(){
       "
     >
         {conversionValue ? conversionValue : "result will be shown here"}</span>
+
   </div>
   )
 }
