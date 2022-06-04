@@ -1,12 +1,16 @@
-import { Header } from "./components/Header"
+import { CurrenciesList } from "./components/CurrenciesList"
 import { Swap } from "./components/Swap"
+
+import { CurrencyProvider } from "./context/Currency"
 
 function App() {
   return (
-    <>
-      <Header />
-      <Swap/>
-    </>
+    <CurrencyProvider>
+      <div className="flex flex-col items-center">
+        <CurrenciesList />
+        <Swap/>
+      </div>
+    </CurrencyProvider>
   )
 }
 
