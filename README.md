@@ -1,5 +1,6 @@
 # Currency Web
-
+  
+  Currency converter project
   Front-end of the [currency-server](https://github.com/Douglas-Machado/currency-server) api(node)
 
 <img src="./.github/bgcover.png"/>
