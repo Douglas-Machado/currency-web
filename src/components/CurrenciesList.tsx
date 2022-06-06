@@ -35,6 +35,7 @@ export function CurrenciesList(){
     if(!currencyText) currencyText = e.target.firstChild?.firstChild?.nodeValue
 
     !from ? setFrom(currencyText) : setTo(currencyText)
+    setIsClicked(false)
   }
 
   return(
@@ -49,8 +50,11 @@ export function CurrenciesList(){
 
       {!isClicked ? null : 
         <div 
-          className="absolute z-10 left-0 right-0 sm:top-8 h-4/6 gap-1 cursor-pointer sm:max-w-screen
-          flex flex-col flex-wrap flex-1 bg-[#205375]">
+          className="absolute z-10 left-0 right-0 top-8
+            flex flex-col items-center sm:items-start sm:flex-wrap flex-1 gap-1 
+            sm:h-5/6 max-h-screen overflow-auto max-w-screen
+            cursor-pointer
+            bg-[#205375]">
           {currenciesList.map(index => {
             return(
               <div 
