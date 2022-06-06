@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import { CaretDown, CaretUp } from 'phosphor-react'
-import React, { useState, useEffect, FormEvent} from "react";
+import React, { useState, useEffect} from "react";
 import { api } from "../services/api";
 
 import { useCurrency } from "../context/Currency"
