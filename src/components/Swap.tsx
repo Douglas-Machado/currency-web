@@ -74,20 +74,15 @@ export function Swap(){
       />
     </div>
       <button 
-        type="submit" 
+        type="submit"
         className="bg-[#112B3C] sm:w-32
           border-2 border-[#F66B0E] text-white rounded-md h-12 text-2xl drop-shadow-box">
         Submit
       </button>
     </form>
-    <span
-      className="text-2xl h-12 flex items-center justify-center
-        sm:w-72 w-full break-words 
-        bg-[#205375] text-white rounded-md drop-shadow-box
-      "
-    >
-        {conversionValue ? conversionValue : "result will be shown here"}</span>
-
+    <span className={conversionValue ? "conversion-text" : ``}>
+        {conversionValue ? conversionValue : "result will be shown here"}
+    </span>
   </div>
   )
 }

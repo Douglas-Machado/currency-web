@@ -16,3 +16,13 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+span{
+  @apply text-xl h-12 flex items-center justify-center
+      sm:w-72 w-full break-words 
+      bg-[#205375] text-white rounded-md drop-shadow-box
+}
+
+span.conversion-text{
+  @apply text-3xl
+}
