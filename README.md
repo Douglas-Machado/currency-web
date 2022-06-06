@@ -2,7 +2,7 @@
 
   Front-end of the [currency-server](https://github.com/Douglas-Machado/currency-server) api(node)
 
-<img src="./.github/cover.png"/>
+<img src="./.github/bgcover.png"/>
 
 ---
 
