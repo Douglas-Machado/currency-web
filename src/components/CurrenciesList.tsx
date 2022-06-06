@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 import { CaretDown, CaretUp } from 'phosphor-react'
-import { useState, useEffect, ChangeEvent, ReactEventHandler} from "react";
+import React, { useState, useEffect, FormEvent} from "react";
 import { api } from "../services/api";
 
 import { useCurrency } from "../context/Currency"
@@ -15,8 +15,7 @@ interface ICurrenciesList extends Array<ICurrency>{}
 export function CurrenciesList(){
   const [isClicked, setIsClicked] = useState(false)
   const [currenciesList, setCurrenciesList] = useState<ICurrenciesList>([])
-  const [teste, setTeste] = useState('')
-  const { from, setFrom, to, setTo } = useCurrency()
+  const { from, setFrom, setTo } = useCurrency()
 
   useEffect(() => {
     async function getCurrencies() {
@@ -31,8 +30,11 @@ export function CurrenciesList(){
     isClicked === true ? setIsClicked(false) : setIsClicked(true)
   }
 
-  function setCurrenciesOnClick(e: any){
-    !from ? setFrom(e.id) : setTo(e.id)
+  function setCurrenciesOnClick(e: React.ChangeEvent<HTMLInputElement>){
+    let currencyText: (string | null | undefined)  = e.target.id
+    if(!currencyText) currencyText = e.target.firstChild?.firstChild?.nodeValue
+
+    !from ? setFrom(currencyText) : setTo(currencyText)
   }
 
   return(
@@ -47,18 +49,20 @@ export function CurrenciesList(){
 
       {!isClicked ? null : 
         <div 
-          className="absolute z-10 left-0 right-0 sm:top-8 h-3/6 gap-1 cursor-pointer
+          className="absolute z-10 left-0 right-0 sm:top-8 h-4/6 gap-1 cursor-pointer sm:max-w-screen
           flex flex-col flex-wrap flex-1 bg-[#205375]">
           {currenciesList.map(index => {
             return(
-              <div key={index.id} className="bg-[#205375] sm:hover:bg-[#112B3C] text-sm">
+              <div 
+                key={index.id} 
+                className="bg-[#205375] hover:bg-[#112B3C] text-sm"
+                onClick={(e: any) => setCurrenciesOnClick(e)} 
+              >
                 <a 
                   id={index.id} 
-                  onClick={(e: any) => setCurrenciesOnClick(e.target)} 
                   className="text-white py-1">
-                    {index.id}
+                    {index.id} | {index.currencyName}
                 </a>
-                <a className="text-white py-1 sm:py-1 px-1 text-sm mr-1">{index.currencyName}</a>
               </div>
             )
           })}
