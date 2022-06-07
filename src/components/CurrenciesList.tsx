@@ -40,21 +40,19 @@ export function CurrenciesList(){
 
   return(
     <>
-      
       <button 
         onClick={showCurrencies}
-        className=" flex items-center text-xl text-white">
+        className=" flex items-center text-xl text-white p-0 m-0">
         Currencies
         {isClicked ? <CaretUp /> : <CaretDown /> }
       </button>
 
       {!isClicked ? null : 
         <div 
-          className="absolute z-10 left-0 right-0 top-8
-            flex flex-col items-center sm:items-start sm:flex-wrap flex-1 gap-1 
+          className="absolute z-10 left-0 right-0 top-[26px]
+            flex flex-col items-center sm:items-start sm:flex-wrap gap-1 
             sm:h-5/6 max-h-screen overflow-auto max-w-screen
-            cursor-pointer
-            bg-[#205375]">
+            cursor-pointer bg-[#205375]">
           {currenciesList.map(index => {
             return(
               <div 
@@ -64,7 +62,7 @@ export function CurrenciesList(){
               >
                 <a 
                   id={index.id} 
-                  className="text-white py-1">
+                  className="text-white">
                     {index.id} | {index.currencyName}
                 </a>
               </div>

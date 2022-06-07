@@ -2,6 +2,13 @@ import { createContext, useState, useContext} from "react";
 
 const CurrencyContext = createContext({})
 
+export interface ICurrencyType {
+  from: string;
+  setFrom: (from: string) => void;
+  to: string;
+  setTo: (from: string) => void;
+}
+
 export function CurrencyProvider({ children }: any) {
   const [from, setFrom] = useState('')
   const [to, setTo] = useState('')
