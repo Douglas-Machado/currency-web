@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  @apply bg-[#112B3C];
-  @apply overflow-hidden
+* {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  @apply bg-[#112B3C]
 }
 
 input::-webkit-outer-spin-button,

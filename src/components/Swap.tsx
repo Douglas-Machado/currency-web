@@ -1,9 +1,12 @@
 import { FormEvent, useState } from "react"
 import { api } from "../services/api"
 import { useCurrency } from "../context/Currency"
+import { AxiosResponse } from "axios"
+
+import { ICurrencyType } from "../context/Currency"
 
 export function Swap(){
-  const { from, setFrom, to, setTo } = useCurrency()
+  const { from, setFrom, to, setTo }: ICurrencyType = useCurrency()
   const [amount, setAmount] = useState(0)
   const [conversionValue, setConversionValue] = useState('')
 
@@ -11,7 +14,7 @@ export function Swap(){
     e.preventDefault()
     if(!from || !to) return setConversionValue("you must insert the currencies")
     try{
-      const response = await api.post('swap', {
+      const response: AxiosResponse = await api.post('swap', {
         from: from,
         to: to,
         amount: amount
