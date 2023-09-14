@@ -1,5 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_URL
+  baseURL: `http://localhost:${import.meta.env.VITE_URL}`,
+  timeout: 5000,
 })
